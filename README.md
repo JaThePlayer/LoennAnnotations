@@ -72,3 +72,6 @@ Because the extension doesn't know about how this method works, you won't get an
 ---@module "jautils"
 local jautils = require("mods").requireFromPlugin("libraries.jautils")
 ```
+
+### Contributing
+PR's are welcome!

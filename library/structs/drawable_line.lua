@@ -37,23 +37,7 @@ local lineExtraWidth = 0.2
 ---@param magnitudeOffset number
 ---@param depth number
 ---@return DrawableSprite
-local function getRotatedRectangleSprite(x1, y1, x2, y2, color, thickness, smooth, offsetX, offsetY, magnitudeOffset, depth)
-    local theta = math.atan2(y2 - y1, x2 - x1)
-    local magnitude = math.sqrt((x1 - x2)^2 + (y1 - y2)^2) + magnitudeOffset
-
-    local halfThickenss = thickness / 2
-    local x = smooth and x1 - lineExtraWidth or x1
-    local y = y1
-    local width = smooth and magnitude + lineExtraWidth * 2 or magnitude
-
-    local sprite = drawableRectangle.fromRectangle("fill", x, y, width, thickness, color):getDrawableSprite()
-
-    sprite:setOffset(offsetX / magnitude, 0.5 / thickness + offsetY / thickness)
-    sprite.rotation = theta
-    sprite.depth = depth
-
-    return sprite
-end
+local function getRotatedRectangleSprite(x1, y1, x2, y2, color, thickness, smooth, offsetX, offsetY, magnitudeOffset, depth) end
 
 ---@return DrawableSprite[]
 function DrawableLine:getDrawableSprite() end
