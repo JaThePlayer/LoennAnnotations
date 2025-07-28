@@ -16,6 +16,7 @@
 ---@class PackedElement
 ---@field __children? PackedElement[]
 ---@field __name string
+---@field [string] any
 
 ---@class Rectangle
 ---@field x number
@@ -51,8 +52,6 @@
 ---A trigger with missing field warnings suppressed.
 ---@class UnknownTrigger : Trigger
 ---@field [string] any
-
----@class Decal
 
 ---@class Tiles
 ---@field _type "tiles"
