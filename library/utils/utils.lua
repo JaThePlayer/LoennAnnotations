@@ -467,7 +467,7 @@ function utils.clamp(value, min, max)
 end
 
 ---@param n number
----@param decimals number
+---@param decimals? number
 ---@return number
 function utils.round(n, decimals) end
 
