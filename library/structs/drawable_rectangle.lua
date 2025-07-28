@@ -73,18 +73,7 @@ function DrawableRectangle:draw() end
 ---Sets the color and secondary color of this rectangle. If an argument is null, that field is not changed.
 ---@param color AnyColor?
 ---@param secondaryColor AnyColor?
-function DrawableRectangle:setColor(color, secondaryColor)
-    local tableColor = utils.getColor(color)
-    local tableSecondaryColor = utils.getColor(secondaryColor)
-
-    if tableColor then
-        self.color = tableColor
-    end
-
-    if tableSecondaryColor then
-        self.secondaryColor = tableSecondaryColor
-    end
-end
+function DrawableRectangle:setColor(color, secondaryColor) end
 
 ---@param mode DrawableRectangle.mode
 ---@param x number

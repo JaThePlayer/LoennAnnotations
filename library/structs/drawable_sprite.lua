@@ -117,7 +117,7 @@ function DrawableSprite:getRectangle() end
 ---@param color NormalizedColorTable
 function DrawableSprite:drawRectangle(mode, color) end
 
----@param alpha number
+---@param alpha? number
 function DrawableSprite:draw(alpha) end
 
 ---@param x number
