@@ -11,6 +11,8 @@
 
 ---@alias MapSaveable number|integer|string|boolean|nil
 
+---@class Batch
+
 ---@class Style
 
 ---@class PackedElement
