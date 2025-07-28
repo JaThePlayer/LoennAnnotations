@@ -1,0 +1,23 @@
+{
+    // Name of the addon
+    "name": "Lönn (Unnoficial)",
+
+    // Lua string patterns to look for in a workspace.
+    // If detected, this addon will be recommended to enable
+    //"words": [ "require[%s%(\"']+MAA[%)\"']" ],
+
+    // Lua string patterns to look for in filenames.
+    // If detected, this addon will be recommended to enable
+    "files": ["structs/drawable_sprite.lua"],
+
+    // List of settings to apply when this addon is enabled
+    "settings": {
+        "Lua.workspace.library": [
+            "${3rd}/love2d/library"
+        ],
+        "Lua.runtime.version": "LuaJIT",
+        "Lua.runtime.special": {
+            "love.filesystem.load": "loadfile"
+        }
+    }
+}

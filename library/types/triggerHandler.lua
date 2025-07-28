@@ -1,0 +1,71 @@
+---@meta
+
+---@alias TriggerCategory
+---| "camera"
+---| "audio"
+---| "visual"
+---| "default"
+
+---@class TriggerHandler<T> : {
+---name: string,
+---associatedMods?: fun(entity: T),
+---nodeLimits?: (TableVector2|fun(room: Room, entity: T):number,number),
+---nodeVisibility?: (NodeVisibility|fun(entity: T):NodeVisibility),
+---nodeLineRenderType?: (NodeLineRenderType|fun(entity: T):NodeLineRenderType),
+---triggerText?: (string|fun(room: Room, entity: T):string),
+---category?: (TriggerCategory|fun(room: Room, entity: T):TriggerCategory),
+---ignoredFields?: (string[]|fun(entity: T):string[]),
+---ignoredFieldsMultiple?: (string[]|fun(entity: T):string[]),
+---ignoredSimilarityKeys?: (string[]|fun(entity: T):string[]),
+---fieldOrder?: (string[]|fun(entity: T):string[]),
+---fieldInformation?: (table<string, FieldInformationEntry>|fun(entity: T): table<string, FieldInformationEntry>),
+---}
+---
+---The internal name of the trigger as defined in the mod
+---@field name string
+---
+---A table containing placement information.
+---May either contain the information directly, or multiple tables of placement information, in case there is a need for multiple placements for a single entity.
+---@field placements? PlacementInfo|PlacementInfo[]
+---
+---A list of mod names as specified in the mods' everest.yaml that are associated with this entity.
+---Used for displaying the mod name behind the entity name in the placement list, and when determining dependencies of a map that contains this entity.
+---Defaults to a one-element list with the name of the mod containing this plugin.
+---@field associatedMods? string[]
+---
+---A pair of integers specifying the minimum and maximum number of nodes that this entity can have. 
+---If the maximum value is -1, there is no upper limit. 
+---Defaults to {0,0}.
+---@field nodeLimits? TableVector2
+---
+---Determines when the entity's nodes are to be rendered. Defaults to "selected"
+---@field nodeVisibility? NodeVisibility
+---
+---Determines how nodes are visually connected to the main entity. Defaults to false.
+---@field nodeLineRenderType? NodeLineRenderType
+---
+---Custom text to be displayed by the trigger. Replaces the default trigger name display.
+---@field triggerText? string
+---
+---General category this trigger belongs to. Determines the colour of the trigger and the View category it is displayed with.
+---@field category? TriggerCategory
+---
+------A list of entity attributes that should not be displayed in the properties menu. Defaults to {"_name", "_id", "originX", "originY"}.
+---@field ignoredFields? string[]
+---
+---A list of additional entity attributes that should not be displayed in the properties menu when multiple entities are selected.
+---@field ignoredFieldsMultiple? string[]
+---
+---A list of entity fields and attributes that should not be considered when checking for similar entities to select in strict mode. 
+---Defaults to {"_name", "_id", "_type", "originX", "originY", "x", "y"}.
+---@field ignoredSimilarityKeys? string[]
+---
+---A list of entity attributes specifying the order that these attributes will be displayed in in the properties menu.
+---Any attribute not specified in this table will be added to the end of the menu in alphabetical order.
+---Defaults to displaying x, y, width and height at the top.
+---@field fieldOrder? string[]
+---
+---Key-value pairs of entity attributes.
+---Each key is an attribute name as specified in the placement data and its value is a table specifying additional metadata relevant for displaying the attribute's value.
+---Custom form fields may add their own options here.
+---@field fieldInformation? table<string, FieldInformationEntry>

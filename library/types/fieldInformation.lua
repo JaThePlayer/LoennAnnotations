@@ -1,0 +1,85 @@
+---@meta
+
+---@class FieldInformationEntry
+---Determines the type of field used to display and validate the attribute.
+---Only "integer", "color", and "list" are usually useful as the other types will typically be guessed from the attribute's current value.
+---@field fieldType "integer"|"color"|"boolean"|"number"|"string"|"list"|string?
+---
+---An optional default value.
+---Requires fieldOrder to also be defined.
+---Normally, all entity attributes have their default value specified in the placement.
+---Should a new attribute be added to the entity at a later time, entities that are already placed would not have the attribute.
+---Setting this option fills the potentially empty field with the specified value if needed.
+---It does not retroactively add the attribute to the already placed entities until the mapper modifies them.
+---@field default MapSaveable?
+---
+---Used with the "integer" and "number" field types. Determines the minimum allowed value for that attribute.
+---Defaults to negative infinity (-math.huge)
+---@field minimumValue number?
+---
+---Used with the "integer" and "number" field types. Determines the maximum allowed value for that attribute.
+---Defaults to positive infinity (math.huge)
+---@field maximumValue number?
+---
+---Used with the "string" field type.
+---Returns true if the input string is valid for the attribute.
+---Defaults to accepting any string.
+---@field validator (fun(string: string):boolean)|nil
+---
+---Used with the "string" field type.
+---Converts the string from what is displayed in the attribute field into the stored attribute data.
+---Defaults to the identity.
+---@field valueTransformer (fun(string: string):string)|nil
+---
+---Used with the "string" field type.
+---Converts the string from the stored attribute data into a string used for display in the attribute field.
+---Defaults to the identity.
+---@field displayTransformer (fun(string: string):string)|nil
+---
+---Used with any textfield-type field and turns it into a dropdown.
+---Contains key-value pairs where each key is the option as displayed in the properties window and its value is the value written to the attribute.
+---Options are sorted alphabetically.
+---If custom order is needed, may also be a list of pairs in the form {text, value}.
+---@field options { [string]: MapSaveable } | ({ [1]: string, [2]: MapSaveable }[]) | nil
+---
+---Used with any textfield-type field if options is defined.
+---Turns the dropdown into an editable dropdown if true, allowing manual entry of values that are not part of options.
+---Defaults to false.
+---@field editable boolean?
+---
+---Used with the "color" field type.
+---Determines whether the "color" field can accept XNA Color names rather than only numerical colors.
+---Defaults to false.
+---@field allowXNAColors boolean?
+---
+---Used with the "color" field type.
+---Determines whether the field may be left empty.
+---Defaults to false.
+---@field allowEmpty boolean?
+---
+---Used with the "color" field type.
+---Determines whether the colour should contain a configurable alpha value.
+---Defaults to false.
+---@field useAlpha boolean?
+---
+---Used with the "list" field type.
+---Determines the type and options of the individual elements in the list.
+---Has the same structure as fieldInformation itself for the element field.
+---@field elementOptions FieldInformationEntry?
+---
+---Used with the "list" field type.
+---Determines the default value a new list element should have after being added to the list.
+---@field elementDefault MapSaveable?
+---
+---Used with the "list" field type. Determines the separator used between list elements. Defaults to comma.
+---@field elementSeparator string?
+---
+---Used with the "list" field type.
+---Determines the minimum number of elements allowed for the list to be valid.
+---Defaults to 0.
+---@field minimumElements integer?
+---
+---Used with the "list" field type.
+---Determines the maximum number of elements allowed for the list to be valid.
+---Defaults to positive infinity.
+---@field maximumElements integer?
