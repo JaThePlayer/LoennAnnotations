@@ -1,18 +1,20 @@
 # Lönn Type Annotations
 
-Provides (currently incomplete) lua type annotations for [Lönn](https://github.com/CelestialCartographers/Loenn), for use as an Addon for the [Lua Language Server](https://luals.github.io/) VSCode extension.
+Provides (currently incomplete) lua type annotations for [Lönn](https://github.com/CelestialCartographers/Loenn), for use as an Addon for the [Lua Language Server](https://luals.github.io/).
 
 **These annotations are NOT official, and NOT created by the Lönn developers. Errors in these annotations should not be reported to the Lönn developers.**
 
-## Installation
+## Installation (VSCode)
 0. Install the [Lua Language Server](https://luals.github.io/) VSCode extension.
-1. Install the Addon.
+1. Install the Addon:
+  - Navigate to the plugin's `addons` directory. (By default on Windows it is: `C:\Users\USERNAME\AppData\Roaming\Code\User\globalStorage\sumneko.lua\addonManager\addons`)
+  - `git clone https://github.com/JaThePlayer/LoennAnnotations`
 2. In your mod's `Loenn` directory, create a `.vscode/settings.json` file if it doesn't exist, with these contents:
     ```json
     {
         "Lua.workspace.library": [
             "${3rd}/love2d/library",
-            "${addons}/loenn/library"
+            "${addons}/LoennAnnotations/library"
         ],
         "Lua.runtime.version": "LuaJIT",
         "Lua.runtime.special": {
