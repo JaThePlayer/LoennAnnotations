@@ -14,6 +14,7 @@
 ---@class Batch
 
 ---@class Style
+---@field _name string
 
 ---@class PackedElement
 ---@field __children? PackedElement[]
