@@ -11,6 +11,12 @@
 
 ---@alias MapSaveable number|integer|string|boolean|nil
 
+---@class Style
+
+---@class PackedElement
+---@field __children? PackedElement[]
+---@field __name string
+
 ---@class Rectangle
 ---@field x number
 ---@field y number
