@@ -63,6 +63,8 @@
 
 ---@class ObjectTiles
 
+---@class Decal
+
 ---@class Room
 ---@field name string
 ---@field x number
@@ -109,5 +111,7 @@
 ---@field fillers Filler[]
 
 ---@class Drawable
+
+---@class Snapshot
 
 ---@class Selection

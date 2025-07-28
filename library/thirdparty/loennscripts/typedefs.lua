@@ -1,0 +1,72 @@
+---@meta
+
+---@class Script.Args
+
+---@class Script.Ctx
+---
+---the screen position of the mouse when the script was ran. While this is exposed, you probably shouldn't use it for anything.
+---@field mouseX number
+---
+---the screen position of the mouse when the script was ran. While this is exposed, you probably shouldn't use it for anything.
+---@field mouseY number
+---
+---the position of the mouse when the script was ran, in the room this script is currently running in. Useful for placing entities, for example. Note that his position is *not* snapped to the grid!
+---@field mouseRoomX number
+---
+---the position of the mouse when the script was ran, in the room this script is currently running in. Useful for placing entities, for example. Note that his position is *not* snapped to the grid!
+---@field mouseRoomY number
+---
+---The map position of the mouse when the script was ran.
+---@field mouseMapX number
+---
+---The map position of the mouse when the script was ran.
+---@field mouseMapY number
+
+---@alias Script.Mode string
+
+---@class Script
+---
+---Internal name of this script
+---@field name string
+---
+---The name used in the sidebar
+---@field displayName string
+---
+---New in 1.0.3, if the current Loenn Scripts version is lower than this, the script will not load and the user will be informed of this
+---@field minimumVersion? string
+---
+---The tooltip displayed when the user hovers over the script in the sidebar
+---@field tooltip? string
+---
+---Tooltips to use for script parameters { [paramName:string] = tooltip:string }
+---@field tooltips? {[string]: string}[]
+---
+---If present, a new window will open when the user runs the script. Here, they can set parameters for the script.
+---@field parameters {[string]: any}[]
+---
+---list of strings, which define the order in which fields appear in the parameter edit window. Equivalent to fieldOrder for entities
+---@field fieldOrder string[]
+---
+---defines extra information for field validation. Equivalent to fieldInformation for entities
+---@field fieldInformation table<string, FieldInformationEntry>
+---
+---A list of entity attributes that should not be displayed in the properties menu. Defaults to {"_name", "_id", "originX", "originY"}.
+---@field ignoredFields? string[]
+---
+---If true, makes the script tool render the current selections. In the future, the selections will also be accessible via the `ctx` table. New in 1.0.8
+---@field useSelections boolean
+---
+---This function gets ran for each room the script is meant to run in.
+---Any changes to the room done by this function will be revertible with CTRL+z automatically.
+---@field run? fun(room: Room, args: Script.Args, ctx: Script.Ctx)
+---
+---This function gets called exactly once per script execution, regardless of how many rooms get affected by it.
+---Changes done by this script cannot be automatically reverted by CTRL+Z
+--- - to allow for this, you'll need to manually make a snapshot, and return it from the function.
+---Loenn Scripts will handle adding this snapshot to history automatically.
+---@field prerun? (fun(room: Room, mode: Script.Mode, ctx: Script.Ctx):Snapshot?)
+---
+---Called each frame to draw additional things for your script via love2d.
+---New in 1.0.8.
+---@field draw? fun()
+local Script = {}
