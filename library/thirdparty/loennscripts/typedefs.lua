@@ -1,6 +1,7 @@
 ---@meta
 
 ---@class Script.Args
+---@field [string] any
 
 ---@class Script.Ctx
 ---
@@ -42,19 +43,19 @@
 ---@field tooltips? {[string]: string}[]
 ---
 ---If present, a new window will open when the user runs the script. Here, they can set parameters for the script.
----@field parameters {[string]: any}[]
+---@field parameters? {[string]: any}[]
 ---
 ---list of strings, which define the order in which fields appear in the parameter edit window. Equivalent to fieldOrder for entities
----@field fieldOrder string[]
+---@field fieldOrder? string[]
 ---
 ---defines extra information for field validation. Equivalent to fieldInformation for entities
----@field fieldInformation table<string, FieldInformationEntry>
+---@field fieldInformation? table<string, FieldInformationEntry>
 ---
 ---A list of entity attributes that should not be displayed in the properties menu. Defaults to {"_name", "_id", "originX", "originY"}.
 ---@field ignoredFields? string[]
 ---
 ---If true, makes the script tool render the current selections. In the future, the selections will also be accessible via the `ctx` table. New in 1.0.8
----@field useSelections boolean
+---@field useSelections? boolean
 ---
 ---This function gets ran for each room the script is meant to run in.
 ---Any changes to the room done by this function will be revertible with CTRL+z automatically.
@@ -64,7 +65,7 @@
 ---Changes done by this script cannot be automatically reverted by CTRL+Z
 --- - to allow for this, you'll need to manually make a snapshot, and return it from the function.
 ---Loenn Scripts will handle adding this snapshot to history automatically.
----@field prerun? (fun(room: Room, mode: Script.Mode, ctx: Script.Ctx):Snapshot?)
+---@field prerun? (fun(args: Script.Args, mode: Script.Mode, ctx: Script.Ctx):Snapshot?)
 ---
 ---Called each frame to draw additional things for your script via love2d.
 ---New in 1.0.8.
