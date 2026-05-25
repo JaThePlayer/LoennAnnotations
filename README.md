@@ -19,10 +19,11 @@ Provides (currently incomplete) lua type annotations for [Lönn](https://github.
         "Lua.runtime.version": "LuaJIT",
         "Lua.runtime.special": {
             "love.filesystem.load": "loadfile"
-        }
+        },
+        "Lua.runtime.plugin": "${addons}/LoennAnnotations/plugin.lua",
     }
     ```
-    This will enable type annotations for both Lönn and Löve2d.
+    This will enable type annotations for both Lönn and Löve2d, as well as enable [Selene](https://github.com/Vexatos/Selene) syntax.
 
 ## Usage
 

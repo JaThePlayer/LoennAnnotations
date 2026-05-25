@@ -15,7 +15,7 @@
 
 ---@class EntityHandler<T> : { 
 ---name: string,
----associatedMods?: fun(entity: T),
+---associatedMods?: (fun(entity: T):string[]?),
 ---nodeLimits?: (TableVector2|fun(room: Room, entity: T):number,number),
 ---nodeVisibility?: (NodeVisibility|fun(entity: T):NodeVisibility),
 ---nodeLineRenderType?: (NodeLineRenderType|fun(entity: T):NodeLineRenderType),

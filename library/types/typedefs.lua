@@ -4,7 +4,7 @@
 
 ---@alias Viewport table
 
----@alias NormalizedColorTable [number, number, number, number|nil]
+---@alias NormalizedColorTable [number, number, number, number?]
 ---@alias TableVector2 [number, number]
 ---@alias TableRectangle [number, number, number, number]
 ---@alias NamedVector2 { x: number, y: number }
@@ -41,6 +41,7 @@
 ---@field height number?
 ---@field _id integer
 ---@field _type "entity"
+---@field _name string
 ---@field nodes table<integer, Node>
 
 ---@class Trigger : Entity
